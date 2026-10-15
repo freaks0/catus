@@ -23,7 +23,7 @@
 | Frontend | React 19 · Vite · Tailwind v4 |
 | 운영 | 무료 티어 인프라(Render · Neon · Vercel)에서 일부 사용자 테스트 중, 정식 출시 준비 |
 | 코드 | 정식 출시 준비로 비공개 전환 (열람이 필요하면 메일로 요청: freaks17489@gmail.com) |
-| 프로젝트 문서 | [기획](docs/01-planning.md) · [ERD](docs/02-erd.md) · [시스템 설계](docs/03-architecture.md) · [트러블슈팅](docs/04-troubleshooting.md) · [회고](docs/05-retrospective.md) |
+| 프로젝트 문서 | [기획](docs/01-planning.md) · [사용자 리서치](docs/06-user-research.md) · [ERD](docs/02-erd.md) · [시스템 설계](docs/03-architecture.md) · [트러블슈팅](docs/04-troubleshooting.md) · [회고](docs/05-retrospective.md) |
 
 ## 핵심 기능
 
