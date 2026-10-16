@@ -1,0 +1,72 @@
+site_name: Catus
+site_description: 고립 전 청년을 위한 대화형 감정 기록 서비스 — 기획·설계·운영 기록
+site_url: https://freaks0.github.io/catus/
+repo_url: https://github.com/freaks0/catus
+repo_name: freaks0/catus
+
+theme:
+  name: material
+  language: ko
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: 다크 모드
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: 라이트 모드
+  font:
+    text: Noto Sans KR
+    code: JetBrains Mono
+  icon:
+    logo: material/cat
+  favicon: design/dali-final.png
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - content.code.copy
+
+nav:
+  - 소개: index.md
+  - 만든 과정:
+      - 01. 기획 — 문제 재정의: 01-planning.md
+      - 06. 사용자 리서치: 06-user-research.md
+      - 07. 디자인 — 하루온에서 Catus까지: 07-design.md
+  - 만든 것:
+      - 02. 데이터 모델 (ERD): 02-erd.md
+      - 03. 시스템 설계: 03-architecture.md
+  - 돌아보기:
+      - 04. 트러블슈팅: 04-troubleshooting.md
+      - 05. 회고: 05-retrospective.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra:
+  social:
+    - icon: material/web
+      link: https://catus-app.vercel.app
+      name: Live Demo
+    - icon: fontawesome/brands/github
+      link: https://github.com/freaks0
