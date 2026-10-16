@@ -32,9 +32,11 @@
 
 고양이 캐릭터도 한 번에 나오지 않았다. 주황 고양이가 선인장을 안고 있던 첫 로고에서 시작해, 픽셀풍 간이 시안("MyCat")을 지나, 세계관(밤을 택한 검은 고양이)이 잡히며 검은 고양이로 다시 그렸고, 이후에도 눈매·비율을 미세하게 조정하는 반복을 거쳤다:
 
-| <img src="design/catus-first-logo.png" width="170"/> | <img src="design/dali-early.png" width="150"/> | <img src="design/dali-final.png" width="150"/> |
-|:---:|:---:|:---:|
-| 첫 로고 시안 — 주황 고양이와 선인장 | 검은 고양이 전환 — 날카로운 눈매의 초기 달이 | 최종 달이 — 둥근 얼굴, 크고 둥근 눈 |
+| <img src="design/catus-first-logo.png" width="150"/> | <img src="design/dali-early.png" width="140"/> | <img src="design/dali-round-eyes.png" width="150"/> | <img src="design/dali-final.png" width="150"/> |
+|:---:|:---:|:---:|:---:|
+| 첫 로고 시안 — 주황 고양이와 선인장 | 검은 고양이 전환 — 날카로운 눈매 | 둥근 링 모양 눈 버전 | 최종 달이 (실제 앱 에셋) — 아몬드형 눈에 빛 반사, 갈색 코, 수염 |
+
+날카로움 → 동그란 링 → 빛이 담긴 아몬드형 눈. 특히 마지막 단계에서 눈에 흰 하이라이트가 들어가며 "밤에도 반짝이는 눈"이라는 달이다움이 완성됐다.
 
 ### 손으로 그린 달이와 선
 
