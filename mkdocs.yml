@@ -3,6 +3,7 @@ site_description: 고립 전 청년을 위한 대화형 감정 기록 서비스 
 site_url: https://freaks0.github.io/catus/
 repo_url: https://github.com/freaks0/catus
 repo_name: freaks0/catus
+use_directory_urls: false
 
 theme:
   name: material
