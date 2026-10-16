@@ -1,5 +1,7 @@
 # 03. 시스템 설계 — 구조와 선택의 이유
 
+> **요약** — 1인 운영을 전제로 한 모놀리스 + 명확한 계층 경계. 프롬프트를 코드처럼 모듈화해 측정·압축할 수 있게 했고, 무료 인프라의 제약(휘발성 디스크·Redis 부재·절전 DB)을 기능 축소가 아니라 설계로 흡수했다.
+
 ## 전체 구조
 
 ```mermaid
@@ -76,6 +78,9 @@ prompts/
 
 ## 보안 설계
 
+<details markdown="1">
+<summary><b>영역별 설계 표 펼쳐 보기</b> — 인증·인가·데이터·남용 방지</summary>
+
 | 영역 | 설계 |
 |---|---|
 | 인증 | JWT Access(24h)/Refresh(7d) **타입 클레임 분리** — 필터가 ACCESS 타입만 인증으로 인정 (Refresh 토큰으로 API 호출 불가) |
@@ -84,6 +89,8 @@ prompts/
 | 인가 | 소유권 위반 403 / 인증 실패 401 구분, 모든 리소스 접근에 소유자 검증 |
 | 데이터 | 익명 메시지 발신자 AES-256-GCM 암호화, 일기 공개는 옵트인 |
 | 남용 방지 | Bucket4j 사용자별 rate limit, dev-login은 dev 프로필에서만 빈 등록 |
+
+</details>
 
 ## "운영비 0원" 제약이 만든 설계
 
@@ -98,11 +105,16 @@ prompts/
 | Gemini 무료 키는 이미지 쿼터 0 | Gemini 이미지 시도 → 429 시 Pollinations 폴백 체인. 유료 전환 시 코드 수정 없이 고품질 경로로 자동 복귀 |
 | 컨테이너 기본 UTC | `TZ=Asia/Seoul` 고정 — 매시 정각 일기 스케줄러와 `LocalDate` 연산이 KST 기준이어야 함 |
 
-
+배포 절차 전체는 [DEPLOYMENT-FREE.md](../DEPLOYMENT-FREE.md) 참조.
 
 ## 프론트엔드 구조 (요약)
+
+<details markdown="1">
+<summary><b>펼쳐 보기</b></summary>
 
 - React 19 + Vite + Tailwind v4, 상태는 TanStack Query(서버) + 최소한의 로컬 state
 - axios 인터셉터: 401 수신 시 refresh를 **single-flight**(동시 401 다발에도 재발급 1회)로 수행 후 원 요청 재시도
 - 채팅은 IndexedDB에 로컬 퍼시스턴스 — 새로고침해도 당일 대화 유지
 - 일기 삽화는 상대 경로(`/images/...`)와 절대 URL(Pollinations)을 모두 처리하는 `resolveImageUrl` 단일 창구
+
+</details>
