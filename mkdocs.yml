@@ -1,5 +1,5 @@
 site_name: Catus
-site_description: 고립 전 청년을 위한 대화형 감정 기록 서비스 — 기획·설계·운영 기록
+site_description: 고립 전 청년을 위한 대화형 감정 기록 서비스. 기획, 설계, 운영 기록
 site_url: https://freaks0.github.io/catus/
 repo_url: https://github.com/freaks0/catus
 repo_name: freaks0/catus
@@ -40,9 +40,9 @@ theme:
 nav:
   - 소개: index.md
   - 만든 과정:
-      - 01. 기획 — 문제 재정의: 01-planning.md
+      - "01. 기획: 문제 재정의": 01-planning.md
       - 06. 사용자 리서치: 06-user-research.md
-      - 07. 디자인 — 하루온에서 Catus까지: 07-design.md
+      - "07. 디자인: 하루온에서 Catus까지": 07-design.md
   - 만든 것:
       - 02. 데이터 모델 (ERD): 02-erd.md
       - 03. 시스템 설계: 03-architecture.md
