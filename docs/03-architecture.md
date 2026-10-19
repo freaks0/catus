@@ -14,7 +14,7 @@ flowchart TB
     end
     subgraph Render["Render (Singapore, 512MB)"]
         A[Spring Boot 모놀리스]
-        S[["@Scheduled + ShedLock\n일기 21:00 / 편지 일 20:00 / Big5 일 00:00"]]
+        S[["@Scheduled + ShedLock\n일기 매시 정각(사용자 지정 시간) / 편지 일요일 20:00 / Big5 일요일 00:00"]]
     end
     subgraph External
         N[(Neon PostgreSQL)]
@@ -105,7 +105,7 @@ prompts/
 | Gemini 무료 키는 이미지 쿼터 0 | Gemini 이미지를 먼저 시도하고 429가 오면 Pollinations로 폴백. 유료 전환 시 코드 수정 없이 고품질 경로로 자동 복귀 |
 | 컨테이너 기본 UTC | `TZ=Asia/Seoul` 고정. 매시 정각 일기 스케줄러와 `LocalDate` 연산이 KST 기준이어야 한다 |
 
-배포 절차 전체는 [DEPLOYMENT-FREE.md](../DEPLOYMENT-FREE.md) 참조.
+배포 절차 전체는 백엔드 저장소의 `DEPLOYMENT-FREE.md`에 있다.
 
 ## 프론트엔드 구조 (요약)
 
