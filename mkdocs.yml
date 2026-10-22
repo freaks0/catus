@@ -41,14 +41,14 @@ theme:
 
 nav:
   - 소개: index.md
-  - 만든 과정:
+  - 문제 정의:
       - 기획: 01-planning.md
       - 사용자 리서치: 06-user-research.md
       - 디자인: 07-design.md
-  - 만든 것:
+  - 설계:
+      - LLM과 시스템 설계: 03-architecture.md
       - 데이터 모델 (ERD): 02-erd.md
-      - 시스템 설계: 03-architecture.md
-  - 돌아보기:
+  - 운영과 회고:
       - 트러블슈팅: 04-troubleshooting.md
       - 회고: 05-retrospective.md
 
