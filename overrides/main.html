@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <!-- Cloudflare Web Analytics (쿠키 없음) -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "29f86fc7a5844bccb54864e7d3691f10"}'></script>
+{% endblock %}

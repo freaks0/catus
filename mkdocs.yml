@@ -8,6 +8,7 @@ copyright: Copyright &copy; 2026 손병훈
 
 theme:
   name: material
+  custom_dir: overrides
   language: ko
   palette:
     - media: "(prefers-color-scheme: light)"
