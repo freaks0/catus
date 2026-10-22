@@ -1,0 +1,5 @@
+/* 한국어 본문은 단어 단위로 줄바꿈하고, 긴 URL이나 코드는 넘치지 않게 끊는다 */
+html[lang="ko"] .md-typeset {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}

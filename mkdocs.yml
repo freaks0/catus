@@ -4,6 +4,7 @@ site_url: https://freaks0.github.io/catus/
 repo_url: https://github.com/freaks0/catus
 repo_name: freaks0/catus
 use_directory_urls: false
+copyright: Copyright &copy; 2026 손병훈
 
 theme:
   name: material
@@ -71,6 +72,9 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_css:
+  - stylesheets/extra.css
 
 extra:
   social:
