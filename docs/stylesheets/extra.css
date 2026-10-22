@@ -13,3 +13,17 @@ html[lang="ko"] .md-typeset {
 .md-typeset table:not([class]) thead:has(th:empty):not(:has(th:not(:empty))) {
   display: none;
 }
+
+/* 헤더 없는 2열 표의 첫 열(항목명)은 줄바꿈하지 않는다 */
+.md-typeset table:not([class]) td:first-child {
+  white-space: nowrap;
+}
+
+/* 그리드 안의 figure 기본 여백을 없애 세 장이 한 줄에 들어가게 한다 */
+.md-typeset .grid figure {
+  margin: 0;
+}
+.md-typeset .grid figure img {
+  max-width: 100%;
+  height: auto;
+}
