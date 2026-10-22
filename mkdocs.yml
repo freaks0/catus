@@ -50,6 +50,14 @@ nav:
       - 트러블슈팅: 04-troubleshooting.md
       - 회고: 05-retrospective.md
 
+plugins:
+  - search
+  - social:
+      cards_layout_options:
+        font_family: Noto Sans KR
+        background_color: "#00897b"
+        color: "#ffffff"
+
 markdown_extensions:
   - admonition
   - attr_list
