@@ -1,0 +1,1271 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="고립 전 청년을 위한 대화형 감정 기록 서비스. 기획, 설계, 운영 기록">
+      
+      
+      
+        <link rel="canonical" href="https://freaks0.github.io/catus/07-design.html">
+      
+      
+        <link rel="prev" href="06-user-research.html">
+      
+      
+        <link rel="next" href="03-architecture.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="design/dali-final.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>디자인 - Catus</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <!-- Cloudflare Web Analytics (쿠키 없음) -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "29f86fc7a5844bccb54864e7d3691f10"}'></script>
+
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="디자인 - Catus" />
+<meta property="og:description" content="고립 전 청년을 위한 대화형 감정 기록 서비스. 기획, 설계, 운영 기록" />
+<meta property="og:image" content="https://freaks0.github.io/catus/assets/images/social/07-design.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://freaks0.github.io/catus/07-design.html" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="디자인 - Catus" />
+<meta property="twitter:description" content="고립 전 청년을 위한 대화형 감정 기록 서비스. 기획, 설계, 운영 기록" />
+<meta property="twitter:image" content="https://freaks0.github.io/catus/assets/images/social/07-design.png" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="index.html" title="Catus" class="md-header__button md-logo" aria-label="Catus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Catus
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              디자인
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-orange"  aria-label="다크 모드"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange"  aria-label="라이트 모드"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/freaks0/catus" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    freaks0/catus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Catus" class="md-nav__button md-logo" aria-label="Catus" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"/></svg>
+
+    </a>
+    Catus
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/freaks0/catus" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    freaks0/catus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    소개
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    문제 정의
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    문제 정의
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-planning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06-user-research.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    사용자 리서치
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    디자인
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="07-design.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    디자인
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        첫 컨셉: 하루온
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        컨셉 전환: 달이와 선
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="컨셉 전환: 달이와 선">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        달이의 변천
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        손으로 그린 달이와 선
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        확정된 방 씬
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="확정된 방 씬">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        응원 메시지의 표현
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용자 흐름도
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        구현으로 이어진 것 / 달라진 것
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    설계
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    설계
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM과 시스템 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-erd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터 모델 (ERD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    운영과 회고
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    운영과 회고
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04-troubleshooting.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    트러블슈팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-retrospective.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    회고
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        첫 컨셉: 하루온
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        컨셉 전환: 달이와 선
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="컨셉 전환: 달이와 선">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        달이의 변천
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        손으로 그린 달이와 선
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        확정된 방 씬
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="확정된 방 씬">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        응원 메시지의 표현
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용자 흐름도
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        구현으로 이어진 것 / 달라진 것
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">디자인<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>요약</strong> 첫 컨셉 하루온(밤바다의 배와 다섯 꽃)을 버리고 창가의 방과 두 캐릭터(달이와 선)로 다시 설계했습니다. 달이는 네 번 다시 그렸습니다. 배경부터 캐릭터까지 전부 직접 그렸습니다.</p>
+</blockquote>
+<p>외부 디자이너 없이 피그마로 직접 진행한 디자인 과정의 기록입니다. 컨셉은 한 번 완전히 뒤집혔고, 캐릭터는 여러 번 다시 그렸습니다. 그 흔적이 세 개의 피그마 파일에 남아 있습니다.</p>
+<h2 id="_2">첫 컨셉: 하루온<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>첫 번째 컨셉의 이름은 "하루온"이었습니다. 은유 체계는 이렇습니다. 나의 내면은 배, 성장시킬 무언가는 식물(꽃과 열매), 하루하루는 항해. 사용자는 밤바다 위 자신의 배에서 꽃을 키우며 내면을 돌봅니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">하루온 표지</th>
+<th style="text-align: center;">하루온 홈 화면</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="design/haruon-cover.png" alt="첫 컨셉 하루온의 표지 시안. 밤바다 위의 배" width="260"/></td>
+<td style="text-align: center;"><img src="design/haruon-home.png" alt="하루온 홈 화면 시안. 나의 항해, 수집함, 일지 메뉴와 성장도 게이지" width="260"/></td>
+</tr>
+<tr>
+<td style="text-align: center;">"고요한 바다 위에 피어나는 나의 내면"</td>
+<td style="text-align: center;">메뉴: 나의 항해 · 수집함 · 일지 / 상단 성장도 게이지</td>
+</tr>
+</tbody>
+</table>
+<p>하루온 단계에서 이미 성향 분석 결과를 식물로 표현한다는 아이디어가 있었습니다. 라벤더(평온), 연꽃(역경 극복), 해바라기(삶의 목적), 피스 릴리(회복탄력성), 수선화(새로운 시작) 다섯 꽃에 심리적 상징을 하나씩 정해 두었고, 이 매핑이 지금의 Big5 분석과 선인장으로 이어졌습니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img src="design/flower-lavender.png" alt="라벤더 일러스트" width="110"/></th>
+<th style="text-align: center;"><img src="design/flower-lotus.png" alt="연꽃 일러스트" width="110"/></th>
+<th style="text-align: center;"><img src="design/flower-sunflower.png" alt="해바라기 일러스트" width="110"/></th>
+<th style="text-align: center;"><img src="design/flower-peacelily.png" alt="피스 릴리 일러스트" width="110"/></th>
+<th style="text-align: center;"><img src="design/flower-daffodil.png" alt="수선화 일러스트" width="110"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">라벤더</td>
+<td style="text-align: center;">연꽃</td>
+<td style="text-align: center;">해바라기</td>
+<td style="text-align: center;">피스 릴리</td>
+<td style="text-align: center;">수선화</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">컨셉 전환: 달이와 선<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>하루온 컨셉은 폐기됐습니다. 파일에 남은 실험 흔적(이미지 생성 모델 비교 리서치, "식물 일관성 프롬프트" 실험)이 보여주듯, 사실적 일러스트 톤은 AI 생성 이미지의 일관성을 유지하기 어려웠고, 다섯 가지 꽃의 상징 체계는 관리해야 할 세계관이 너무 많았습니다.</p>
+<p>재편의 방향은 여러 식물의 상징을 버려진 존재 둘의 이야기로 모으는 것이었습니다.</p>
+<p>달이(Moony)는 검은 고양이입니다. 12간지에서 탈락한 고양이로, 모두가 인정받던 동물들 사이에서 혼자 남겨졌고 그래서 밤을 택했습니다. 밤은 자신을 있는 그대로 받아주기 때문입니다. 이름 "달이"는 그 밤의 달에서 왔습니다. 섬세하고 감정이 풍부하며, 사용자처럼 혼자라고 느껴본 적 있는 친구입니다. 달이가 밤에 일기를 가져다주는 서비스 구조는 이 설정에서 나왔습니다.</p>
+<p>선(Seon)은 선인장입니다. 뾰족하다는 이유로 누군가 버린 식물로, 햇빛도 물도 부족한 베란다에서 살아남으며 더 단단해졌습니다. 조용하지만 든든하고, 침묵으로 말합니다. 세계관 원문에서 달이는 선의 가시를 만지며 "내 날카로움도 괜찮구나"를 배우고, 선은 가장 어두운 시간을 견딘 끝에 분홍 꽃을 피웁니다. 어느 밤 베란다 구석에서 혼자였던 둘이 만나 서로의 곁이 되어준다는 이야기입니다.</p>
+<p>톤도 사실적 일러스트에서 납작하고 따뜻한 파스텔로 바뀌었습니다. 사용자 인터뷰의 소수 의견이 이 방향을 지지했습니다. "너무 현실적이거나 차가운 그림보다는 감정의 온도를 담은 표현이 더 와닿습니다."</p>
+<h3 id="_4">달이의 변천<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>고양이 캐릭터는 네 번 다시 그렸습니다. 주황 고양이가 선인장을 안고 있던 첫 로고에서 시작해, 픽셀풍 간이 시안("MyCat")을 지나, 세계관(밤을 택한 검은 고양이)이 잡히며 검은 고양이로 다시 그렸고, 이후에도 눈매와 비율을 미세하게 조정하는 반복을 거쳤습니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img src="design/catus-first-logo.png" alt="첫 로고 시안. 선인장을 안은 주황 고양이" width="150"/></th>
+<th style="text-align: center;"><img src="design/dali-early.png" alt="검은 고양이로 바꾼 초기 달이. 날카로운 눈매" width="140"/></th>
+<th style="text-align: center;"><img src="design/dali-round-eyes.png" alt="둥근 링 모양 눈의 달이 시안" width="150"/></th>
+<th style="text-align: center;"><img src="design/dali-final.png" alt="최종 달이. 아몬드형 눈에 빛 반사, 갈색 코, 수염" width="150"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">첫 로고 시안: 주황 고양이와 선인장</td>
+<td style="text-align: center;">검은 고양이 전환: 날카로운 눈매</td>
+<td style="text-align: center;">둥근 링 모양 눈 버전</td>
+<td style="text-align: center;">최종 달이 (실제 앱 에셋): 아몬드형 눈에 빛 반사, 갈색 코, 수염</td>
+</tr>
+</tbody>
+</table>
+<p>날카로운 눈에서 동그란 링으로, 다시 빛이 담긴 아몬드형 눈으로 바뀌었습니다. 마지막 단계에서 눈에 흰 하이라이트를 넣어 밤에도 반짝이는 눈으로 만들었습니다.</p>
+<h3 id="_5">손으로 그린 달이와 선<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>캐릭터와 에셋은 외부 소스 없이 직접 그렸습니다. 앱에 들어간 컷 외에도 달이와 선의 일상을 그린 드로잉 시리즈가 쌓였는데, 세계관의 디테일(선이 피운 분홍 꽃)까지 그림 속에 녹아 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img src="design/dali-sketch-easel.png" alt="이젤 앞에서 선인장 선을 그리는 달이 드로잉" width="190"/></th>
+<th style="text-align: center;"><img src="design/dali-sketch-hat.png" alt="선인장 모자를 쓴 달이 드로잉" width="190"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">이젤 앞에서 선을 그리는 달이. "달이가 그려주는 그림일기" 그 자체</td>
+<td style="text-align: center;">선인장 모자를 쓴 달이</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img src="design/dali-sketch-pot.png" alt="화분을 쏟고 시치미 떼는 달이 드로잉. 쏟아진 선인장에 분홍 꽃" width="190"/></td>
+<td style="text-align: center;"><img src="design/dali-sketch-hide.png" alt="선인장 뒤에 숨은 달이 드로잉" width="190"/></td>
+</tr>
+<tr>
+<td style="text-align: center;">화분을 쏟고 시치미 떼는 달이 (쏟아진 선인장에 분홍 꽃)</td>
+<td style="text-align: center;">선 뒤에 숨은 달이</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">확정된 방 씬<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>최종 확정된 방 씬입니다. 배경 숲, 창틀, 선인장 둘, 공책, 종이비행기, 달이까지 모든 오브젝트를 직접 그려서 한 장면으로 합성했고, 낮과 밤 두 벌로 만들었습니다. 밤 씬은 달이가 일기를 가져다주는 시간대의 화면이자 다크모드 배경입니다. 구현은 이 씬을 거의 그대로 재현했습니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">낮 씬</th>
+<th style="text-align: center;">밤 씬</th>
+<th style="text-align: center;">실제 구현 (웹)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="design/catus-room-scene.png" alt="확정된 낮 방 씬. 창밖 숲, 선인장 둘, 공책, 종이비행기, 달이" width="200"/></td>
+<td style="text-align: center;"><img src="design/catus-room-night.png" alt="확정된 밤 방 씬. 다크모드 배경" width="200"/></td>
+<td style="text-align: center;"><img src="screenshots/home.png" alt="실제 구현된 홈 화면. 방에서 쉬는 달이" width="200"/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">응원 메시지의 표현<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>응원 메시지의 표현 방식은 그리기 전에 문장으로 먼저 정했습니다. 피그마에 남아 있는 당시의 정의입니다.</p>
+<blockquote>
+<p>"다른 사용자의 그림일기가 날아온 걸 종이비행기로 표현"
+"다른 사용자가 나의 그림일기에 메시지를 보내줬을 때 일기장에 말풍선으로 표시"</p>
+</blockquote>
+<p>구현에서는 이 설정이 두 갈래로 다듬어졌습니다. 타인의 떠도는 일기는 달이를 세 번 쓰다듬으면 달이가 물어다 주고(세계관 문서의 "달이가 물고 온다"가 채택됐습니다), 응원 메시지가 도착하면 종이비행기가 창가로 날아듭니다. 아래는 응원 메시지함 작업 화면입니다. 왼쪽이 확정 시안(노트 위 발자국, 화면 아래에서 빼꼼 내다보는 달이와 선), 오른쪽은 그보다 이른 픽셀풍 탐색 시안(MyCat)입니다.</p>
+<p><img src="design/cheer-inbox-figma.png" alt="응원 메시지함 피그마 작업 화면. 왼쪽 확정 시안, 오른쪽 픽셀풍 탐색 시안" width="520"/></p>
+<h2 id="_8">사용자 흐름도<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>와이어프레임 외에도 서비스 전체를 설계한 산출물이 함께 남아 있습니다. 회원가입 퍼널 정의, 온보딩 시나리오(감정분석 온보딩 1~8), 그리고 가입부터 배치 일기 생성, 공개 범위, 구독 모델(월 4,900~9,900원 가설. 인터뷰에서 확인한 수용선은 3,000~5,000원이었습니다)까지 그린 사용자 흐름도입니다.</p>
+<details>
+<summary><b>사용자 흐름도 전체 보기</b> (세로로 긴 다이어그램)</summary>
+<img src="design/user-flow.png" alt="가입부터 배치 일기 생성, 공개 범위, 구독 모델까지 그린 사용자 흐름도" width="420"/>
+</details>
+
+<p>흐름도의 뼈대(가입, 성향 분석, 자유 대화, 지정 시간 배치 생성, 공개 선택, 익명 응원)는 실제 구현과 거의 일치합니다. 구독과 채팅 횟수 제한 같은 수익화 요소는 구현에서 제외하고 로드맵으로 남겼습니다.</p>
+<h2 id="_9">구현으로 이어진 것 / 달라진 것<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<details>
+<summary><b>설계와 구현 매핑 표 펼쳐 보기</b></summary>
+<table>
+<thead>
+<tr>
+<th>피그마 설계</th>
+<th>구현</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>창가의 방 + 선인장 + 달이 + 책</td>
+<td>그대로 (에셋 직접 제작)</td>
+</tr>
+<tr>
+<td>음성 입력 버튼</td>
+<td>그대로 (Web Speech API)</td>
+</tr>
+<tr>
+<td>종이비행기로 날아오는 타인의 일기</td>
+<td>그대로</td>
+</tr>
+<tr>
+<td>성향 분석 온보딩(가이드 대화 5~10분)</td>
+<td>10문항 테스트 + 주간 대화 기반 EMA로 간소화</td>
+</tr>
+<tr>
+<td>채팅 횟수 제한·구독 유도</td>
+<td>제외 (무료, 로드맵)</td>
+</tr>
+<tr>
+<td>일기 생성 "설정 시간 2~3시간 전 배치"</td>
+<td>사용자 지정 시간 정각 배치 + 미리 받기·재생성</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="하단/푸터" >
+        
+          
+          <a href="06-user-research.html" class="md-footer__link md-footer__link--prev" aria-label="이전: 사용자 리서치">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                이전
+              </span>
+              <div class="md-ellipsis">
+                사용자 리서치
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="03-architecture.html" class="md-footer__link md-footer__link--next" aria-label="다음: LLM과 시스템 설계">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                다음
+              </span>
+              <div class="md-ellipsis">
+                LLM과 시스템 설계
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 손병훈
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://catus-app.vercel.app" target="_blank" rel="noopener" title="Live Demo" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/freaks0" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

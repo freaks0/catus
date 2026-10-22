@@ -1,0 +1,29 @@
+/* 한국어 본문은 단어 단위로 줄바꿈하고, 긴 URL이나 코드는 넘치지 않게 끊는다 */
+html[lang="ko"] .md-typeset {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* 첫 화면 스크린샷 3장이 한 줄에 놓이도록 그리드 최소 열 너비를 줄인다 */
+.md-typeset div.grid:not(.cards) {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)) !important;
+}
+
+/* 헤더 없이 쓰는 2열 표에서 빈 헤더 줄을 숨긴다 */
+.md-typeset table:not([class]) thead:has(th:empty):not(:has(th:not(:empty))) {
+  display: none;
+}
+
+/* 헤더 없는 2열 표의 첫 열(항목명)은 줄바꿈하지 않는다 */
+.md-typeset table:not([class]) td:first-child {
+  white-space: nowrap;
+}
+
+/* 그리드 안의 figure 기본 여백을 없애 세 장이 한 줄에 들어가게 한다 */
+.md-typeset .grid figure {
+  margin: 0;
+}
+.md-typeset .grid figure img {
+  max-width: 100%;
+  height: auto;
+}
