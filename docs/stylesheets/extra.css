@@ -3,3 +3,13 @@ html[lang="ko"] .md-typeset {
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
+
+/* 첫 화면 스크린샷 3장이 한 줄에 놓이도록 그리드 최소 열 너비를 줄인다 */
+.md-typeset .grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+}
+
+/* 헤더 없이 쓰는 2열 표에서 빈 헤더 줄을 숨긴다 */
+.md-typeset table:not([class]) thead:has(th:empty):not(:has(th:not(:empty))) {
+  display: none;
+}
