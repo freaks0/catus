@@ -46,12 +46,12 @@
 
 | 홈 | 달이와 대화 | 감정 선택 |
 |:---:|:---:|:---:|
-| <img src="docs/screenshots/home.png" width="230"/> | <img src="docs/screenshots/chat.png" width="230"/> | <img src="docs/screenshots/emotion.png" width="230"/> |
+| <img src="docs/screenshots/home.png" alt="실제 구현된 홈 화면. 방에서 쉬는 달이" width="230"/> | <img src="docs/screenshots/chat.png" alt="달이와 대화하는 채팅 화면" width="230"/> | <img src="docs/screenshots/emotion.png" alt="대화 종료 시 하루 감정을 고르는 화면" width="230"/> |
 | 방에서 쉬는 달이 (쓰다듬기, 선인장·책 인터랙션) | 공감하고 되묻는 대화 | 대화 종료 시 하루 감정 기록 |
 
 | 그림일기 | 달이의 주간 편지 | 캘린더 |
 |:---:|:---:|:---:|
-| <img src="docs/screenshots/diary.png" width="230"/> | <img src="docs/screenshots/letter.png" width="230"/> | <img src="docs/screenshots/calendar.png" width="230"/> |
+| <img src="docs/screenshots/diary.png" alt="대화에서 생성된 그림일기 화면" width="230"/> | <img src="docs/screenshots/letter.png" alt="달이의 주간 편지 화면" width="230"/> | <img src="docs/screenshots/calendar.png" alt="감정 색상과 삽화로 모아 보는 캘린더 화면" width="230"/> |
 | 대화 속 사실만 담은 일기 + 삽화 | 한 주를 돌아보는 손편지 | 감정 색상과 삽화로 모아보는 한 달 |
 
 ## 아키텍처
