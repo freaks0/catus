@@ -1,0 +1,80 @@
+/* 한국어 본문은 단어 단위로 줄바꿈하고, 긴 URL이나 코드는 넘치지 않게 끊는다 */
+html[lang="ko"] .md-typeset {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* 첫 화면 스크린샷 3장이 한 줄에 놓이도록 그리드 최소 열 너비를 줄인다 */
+.md-typeset div.grid:not(.cards) {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)) !important;
+}
+
+/* 헤더 없이 쓰는 2열 표에서 빈 헤더 줄을 숨긴다 */
+.md-typeset table:not([class]) thead:has(th:empty):not(:has(th:not(:empty))) {
+  display: none;
+}
+
+/* 헤더 없는 2열 표의 첫 열(항목명)은 줄바꿈하지 않는다 */
+.md-typeset table:not([class]) td:first-child {
+  white-space: nowrap;
+}
+
+/* 그리드 안의 figure 기본 여백을 없애 세 장이 한 줄에 들어가게 한다 */
+.md-typeset .grid figure {
+  margin: 0;
+}
+.md-typeset .grid figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 그림 설명은 기울이지 않고, 본문(0.8rem)보다 한 단계 작게, 흐린 색으로 */
+.md-typeset figcaption {
+  font-style: normal;
+  font-size: 0.7rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* 머메이드 그림의 상자와 선을 테마 색에 맞춘다 */
+:root > * {
+  --md-mermaid-node-bg-color: color-mix(in srgb, var(--md-primary-fg-color) 12%, var(--md-default-bg-color));
+  --md-mermaid-node-fg-color: var(--md-primary-fg-color--dark);
+  --md-mermaid-edge-color: var(--md-default-fg-color--light);
+  --md-mermaid-label-bg-color: var(--md-default-bg-color);
+  --md-mermaid-label-fg-color: var(--md-default-fg-color);
+}
+
+/* 한글 큰 제목은 가는 굵기(300)로는 흐려 보여 보통 굵기로 올린다 */
+.md-typeset h1 {
+  font-weight: 500;
+  color: var(--md-default-fg-color);
+}
+.md-typeset h2 {
+  font-weight: 500;
+}
+
+/* 모바일에서는 첫 화면 스크린샷이 화면 폭을 다 차지하지 않게 폭을 제한하고 가운데 둔다 */
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .grid figure {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .md-typeset .grid figure img {
+    width: 240px;
+    display: inline-block;
+  }
+}
+
+/* ERD는 본문 폭에 맞춰 줄이지 않고 실제 크기로 그린다. 넘치는 부분은 가로로 넘긴다 */
+.md-typeset .erd {
+  overflow-x: auto;
+}
+.md-typeset .erd .mermaid {
+  min-width: 640px;
+}
+
+/* 헤더의 고양이 아이콘과, 사이드 메뉴 맨 위의 아이콘·사이트 이름 줄을 뺀다 */
+.md-header__button.md-logo,
+.md-nav--primary > .md-nav__title {
+  display: none;
+}
