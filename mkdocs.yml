@@ -1,8 +1,6 @@
 site_name: Catus
-site_description: 고립 전 청년을 위한 대화형 감정 기록 서비스. 기획, 설계, 운영 기록
+site_description: 하루 끝에 고양이 달이와 나눈 대화가 그날 밤 그림일기로 도착하는, 고립 전 20대를 위한 감정 기록 서비스. 기획, 설계, 운영 기록
 site_url: https://freaks0.github.io/catus/
-repo_url: https://github.com/freaks0/catus
-repo_name: freaks0/catus
 use_directory_urls: false
 copyright: Copyright &copy; 2026 손병훈
 
@@ -32,28 +30,19 @@ theme:
     logo: material/cat
   favicon: design/dali-final.png
   features:
-    - navigation.sections
     - navigation.top
     - navigation.footer
     - toc.follow
-    - search.suggest
     - content.code.copy
 
 nav:
   - 소개: index.md
-  - 문제 정의:
-      - 기획: 01-planning.md
-      - 사용자 리서치: 06-user-research.md
-      - 디자인: 07-design.md
-  - 설계:
-      - LLM과 시스템 설계: 03-architecture.md
-      - 데이터 모델 (ERD): 02-erd.md
-  - 운영과 회고:
-      - 트러블슈팅: 04-troubleshooting.md
-      - 회고: 05-retrospective.md
+  - 기획과 리서치: 01-planning.md
+  - 디자인: 07-design.md
+  - 설계: 03-architecture.md
+  - 운영과 회고: 04-troubleshooting.md
 
 plugins:
-  - search
   - social:
       cards_layout_options:
         font_family: Noto Sans KR
@@ -67,6 +56,9 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
